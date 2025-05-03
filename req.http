@@ -1,0 +1,167 @@
+###User's Requests
+###Registration
+
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username": "sunny",
+    "firstName": "Sunny",
+    "lastName": "Singh",
+    "email": "sunny@example.com",
+    "password": "ask01",
+    "userType": "student"
+}
+
+###Registration
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"sunny1",
+    "firstName":"Sunny",
+    "lastName":"Singh",
+    "email":"sunnySingh@gmail.com",
+    "password":"ask01",
+    "stallName":"Juice Center",
+    "userType":"shopkeeper"
+}
+
+# ###Signin
+# POST http://localhost:4000/user-api/login
+# Content-Type: application/json
+
+# {
+#     "userType":"customer",
+#     "username":"askarthikey",
+#     "password":"ask01"
+# }
+
+###Signin
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "username":"sunny1",
+    "password":"ask01"
+}
+
+###Add items to stalls
+POST http://localhost:4000/stall-api/additems
+Content-Type: application/json
+
+{
+    "stallName": "Juice Center",
+    "shopkeeperName": "sunny1",
+    "items": [
+        {
+            "itemName": "Orange Juice",
+            "priceperitem": 40,
+            "quantity": 20,
+            "preparationTime": "10 minutes"  
+        }
+    ]
+}
+
+
+###get all stalls
+GET http://localhost:4000/stall-api/getallstalls
+
+###get stall by name
+GET http://localhost:4000/stall-api/getstall/Juice%20Center
+
+###get all items of stall
+GET http://localhost:4000/stall-api/getitems/Juice%20Center
+
+### Update an item
+PUT http://localhost:4000/stall-api/updateitem/Juice%20Center/Mango%20Juice
+Content-Type: application/json
+
+{
+  "shopkeeperName": "sunny1",
+  "itemName": "Orange Juice",
+  "priceperitem": 40,
+  "quantity": 20,
+  "preparationTime": "12 minutes"
+}
+
+### Delete an item
+DELETE http://localhost:4000/stall-api/deleteitem/Juice%20Center/Watermelon%20Juice
+Content-Type: application/json
+
+{
+  "shopkeeperName": "sunny1"
+}
+
+### Add to cart
+POST http://localhost:4000/order-api/addtocart
+Content-Type: application/json
+
+{
+  "studentUsername": "sunny",
+  "stallName": "Juice Center",
+  "itemName": "Orange Juice",
+  "quantity": 2
+}
+
+### Get all orders by student
+GET http://localhost:4000/order-api/cart/sunny
+
+### Get all orders by shopkeeper
+GET http://localhost:4000/order-api/shopkeeperorders/Juice%20Center
+
+### Update an order
+PUT http://localhost:4000/order-api/updatecart
+Content-Type: application/json
+
+{
+  "studentUsername": "sunny",
+  "stallName": "Juice Center",
+  "itemName": "Mango Juice",
+  "quantity": 3
+}
+
+### Delete an order
+DELETE http://localhost:4000/order-api/deletecart
+Content-Type: application/json
+
+{
+  "studentUsername": "sunny",
+  "stallName": "Juice Center",
+  "itemName": "Mango Juice"
+}
+
+### Submit feedback
+POST http://localhost:4000/feedback-api/submit
+Content-Type: application/json
+
+{
+  "studentUsername": "sunny",
+  "stallName": "Juice Center",
+  "feedbackOptions": ["Quality issues"],
+  "feedbackText": "Oil is not good"
+}
+
+### Submit feedback (no text provided)
+POST http://localhost:4000/feedback-api/submit
+Content-Type: application/json
+
+{
+  "studentUsername": "ravi",
+  "stallName": "Snacks Stall",
+  "feedbackOptions": ["Quality issues"]
+}
+
+### Get feedback for a stall
+GET http://localhost:4000/feedback-api/stall/Juice Center
+
+### Get feedback by student
+GET http://localhost:4000/feedback-api/student/sunny
+
+### Get notifications for a stall
+GET http://localhost:4000/notification-api/stall/Juice Center
+
+
+
+
+
